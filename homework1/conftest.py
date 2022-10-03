@@ -16,8 +16,8 @@ def config(request):
 def driver(config):
     options = Options()
     options.headless = config["headless"]
-    driver = webdriver.Chrome(executable_path=ChromeDriverManager(version='102.0.5005.61').install(),options=options)
-    # driver = webdriver.Chrome(executable_path=ChromeDriverManager(version="105.0.5195.19").install(),options=options)
+    # driver = webdriver.Chrome(executable_path=ChromeDriverManager(version='102.0.5005.61').install(),options=options)
+    driver = webdriver.Chrome(executable_path=ChromeDriverManager(version="105.0.5195.19").install(),options=options)
     driver.set_window_size(1920,1080)
     driver.implicitly_wait(5)
     driver.get('https://target-sandbox.my.com')
