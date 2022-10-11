@@ -75,3 +75,5 @@ class TestMenuButton(Login):
         self.click(locator=test_input)
         WebDriverWait(self.driver,10).until(EC.invisibility_of_element((By.CSS_SELECTOR, ".spinner")))
         assert expected in self.find(*basic_locators.NAME_PAGE).get_attribute('class')
+
+
