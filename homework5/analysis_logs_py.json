@@ -1,0 +1,52 @@
+{
+    "Count request for type": {
+        "POST": 102504,
+        "GET": 122095,
+        "HEAD": 528,
+        "PUT": 6
+    },
+    "Top 10 popular request": {
+        "/administrator/index.php": 103932,
+        "/apache-log/access.log": 26336,
+        "/": 6939,
+        "/templates/_system/css/general.css": 4980,
+        "/robots.txt": 3199,
+        "http://almhuette-raith.at/administrator/index.php": 2356,
+        "/favicon.ico": 2201,
+        "/wp-login.php": 1644,
+        "/administrator/": 1563,
+        "/templates/jp_hotel/css/template.css": 1287
+    },
+    "Top 5 big request": {
+        "3053": {
+            "url": "/index.php?option=com_myblog&task=ajaxupload",
+            "status": 404,
+            "size": 1397,
+            "ip": "186.202.122.236"
+        },
+        "47640": {
+            "url": "/index.php?option=com_phocagallery&view=category&id=4025&Itemid=53",
+            "status": 404,
+            "size": 1417,
+            "ip": "189.217.45.73"
+        },
+        "47641": {
+            "url": "/index.php?option=com_phocagallery&view=category&id=7806&Itemid=53",
+            "status": 404,
+            "size": 1417,
+            "ip": "189.217.45.73"
+        },
+        "47662": {
+            "url": "/index.php?option=com_phocagallery&view=category&id=%28SELECT%20%28CASE%20WHEN%20%289168%3D4696%29%20THEN%209168%20ELSE%209168%2A%28SELECT%209168%20FROM%20INFORMATION_SCHEMA.CHARACTER_SETS%29%20END%29%29&Itemid=53",
+            "status": 404,
+            "size": 1417,
+            "ip": "189.217.45.73"
+        },
+        "47663": {
+            "url": "/index.php?option=com_phocagallery&view=category&id=%28SELECT%20%28CASE%20WHEN%20%281753%3D1753%29%20THEN%201753%20ELSE%201753%2A%28SELECT%201753%20FROM%20INFORMATION_SCHEMA.CHARACTER_SETS%29%20END%29%29&Itemid=53",
+            "status": 404,
+            "size": 1417,
+            "ip": "189.217.45.73"
+        }
+    }
+}
