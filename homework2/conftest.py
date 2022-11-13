@@ -37,7 +37,6 @@ def driver(config):
     options = Options()
     options.headless = config['headless']
     if config['browser'] == 'chrome':
-        # browser = webdriver.Chrome(executable_path=ChromeDriverManager(version='102.0.5005.61').install(),options=options)
         browser = webdriver.Chrome(executable_path=ChromeDriverManager(version="105.0.5195.19").install(),options=options)
     browser.get(config['url'])
     browser.maximize_window()
@@ -58,7 +57,6 @@ def get_driver(config):
     options = Options()
     options.headless = config['headless']
     if config['browser'] == 'chrome':
-        # browser = webdriver.Chrome(executable_path=ChromeDriverManager(version='102.0.5005.61').install(),options=options)
         browser = webdriver.Chrome(executable_path=ChromeDriverManager(version='105.0.5195.19').install())
     return browser
 

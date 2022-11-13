@@ -31,17 +31,9 @@ class SegmentsSegmentsListPage(SegmentsPage):
                 id_segment = cell.get_attribute('data-test').split('-')[2]
                 find = False
             if find == False:
-                # break
                 if cell.get_attribute('data-test') == f'remove-{id_segment} row-{id_segment}':
                     cell.find_element(locator, f'{path}/span').click()
                     break
-        # from selenium.webdriver.common.by import By
-        # checkbox = self.find(By.XPATH, f"//div[contains(@data-test, 'id-{id_segment} row-{id_segment}')]/div/input")
-        # if checkbox.is_selected() == False:
-        #     checkbox.click()
-        # self.click(SegmentsSegmentsListPageLocators.BUTTON_ACTIONS_WITH_TABLE)
-        # self.click(SegmentsSegmentsListPageLocators.BUTTON_REMOVE_IN_ACTIONS)
-
         self.click(SegmentsSegmentsListPageLocators.BUTTON_DELETE_SEGMENT)
 
 

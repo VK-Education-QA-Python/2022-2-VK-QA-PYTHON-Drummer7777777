@@ -33,8 +33,7 @@ class BaseCase:
     def setup(self, driver, config, logger, request: FixtureRequest, cookies):
         self.driver = driver
         self.config = config
-        self.login_page = LoginPage(driver)
-        self.base_page: BasePage = (request.getfixturevalue('base_page'))
+        self.login_page = LoginPage(driver)]
         self.logger = logger
 
         if self.authorize:
