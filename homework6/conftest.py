@@ -10,6 +10,7 @@ def pytest_configure(config):
     if not hasattr(config, 'workerinput'):
         mysql_client.create_table_count_request_by_type()
         mysql_client.create_table_top_10_popular_request()
+        mysql_client.create_top_5_big_request()
     config.mysql_client = mysql_client
 
 

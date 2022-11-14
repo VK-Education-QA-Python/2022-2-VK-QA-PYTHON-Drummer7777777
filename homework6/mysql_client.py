@@ -2,6 +2,7 @@ import sqlalchemy
 from sqlalchemy.orm import sessionmaker
 from models.count_request_by_type import BaseCountRequestByType
 from models.top_10_popular_request import BaseTop10PopularRequest
+from models.top_5_big_request import BaseTop5BigRequest
 
 
 class MySqlClient:
@@ -36,6 +37,10 @@ class MySqlClient:
     def create_table_top_10_popular_request(self):
         if not sqlalchemy.inspect(self.engine).has_table('top_10_popular_request'):
             BaseTop10PopularRequest.metadata.tables['top_10_popular_request'].create(self.engine)
+
+    def create_top_5_big_request(self):
+        if not sqlalchemy.inspect(self.engine).has_table('top_5_big_request'):
+            BaseTop5BigRequest.metadata.tables['top_5_big_request'].create(self.engine)
 
     def execute_query(self, query, fetch=False):
         res = self.connection.execute(query)

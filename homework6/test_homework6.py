@@ -19,3 +19,9 @@ class TestMySql(MyTest):
         self.builder.create_top_10_popular_request(count_top=count_top)
         count_rows = self.client.execute_query('select count(*) from top_10_popular_request;', fetch=True)[0][0]
         assert count_rows == count_top
+
+    def test_top_5_big_request(self):
+        count_top = 10
+        self.builder.create_top_5_big_request(count_top=count_top)
+        count_rows = self.client.execute_query('select count(*) from top_5_big_request;', fetch=True)[0][0]
+        assert count_rows == count_top
