@@ -8,7 +8,7 @@ from models.top_5_big_request import BaseTop5BigRequest
 class MySqlClient:
     def __init__(self, db_name, user, password):
         self.user = user
-        self.port = '33060'
+        self.port = '3306'
         self.password = password
         self.host = '127.0.0.1'
         self.db_name = db_name
