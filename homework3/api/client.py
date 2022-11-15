@@ -1,3 +1,4 @@
+import pytest
 import requests
 import json
 from urllib.parse import urljoin
@@ -48,13 +49,16 @@ class ApiClient:
         image = self._request('POST', '/api/v2/content/static.json', headers=self.session.cookies, files=file)
         return image.json()['id']
 
+
+    def check_created_company(self, id_created_company):
+        self._request('GET', f'api/v2/campaigns/{id_created_company}.json', params='?fields=id,name,status', headers=self.session.cookies)
+        return True
+
     def create_company(self, id_content):
         company_data = self.builder.create_company(id_content)
         data = json.dumps(company_data.data)
         response = self._request('POST', 'api/v2/campaigns.json', headers=self.session.cookies, data=data)
         company_data.id_created_company = json.loads(response.content.decode())['id']
-        list_companys = self._request('GET', 'api/v2/campaigns.json', params='_status__in=active', headers=self.session.cookies).json()
-        assert company_data.id_created_company in [company['id'] for company in list_companys['items'] if company['id'] == company_data.id_created_company]
         return company_data.id_created_company
 
     def delete_company(self, id_company):
@@ -62,13 +66,15 @@ class ApiClient:
         self._request('POST', f'api/v2/campaigns/{id_company}.json', headers=self.session.cookies, data=json.dumps(data), expected_status=204)
         return
 
+    def check_created_segment(self, id_segment):
+        self._request('GET', f'api/v2/remarketing/segments/{id_segment}/relations.json', headers=self.session.cookies)
+        return True
+
     def create_segment(self, relations_object_type, source_id=None):
         segment_data = self.builder.create_segment(relations_object_type, source_id)
         data = json.dumps(segment_data.data)
         response = self._request('POST', 'api/v2/remarketing/segments.json', headers=self.session.cookies, data=data)
         segment_data.id_segment = json.loads(response.content.decode())['id']
-        list_segments =self._request('GET', 'api/v2/remarketing/segments.json').json()
-        assert segment_data.id_segment in [segment['id'] for segment in list_segments['items'] if segment['id'] == segment_data.id_segment]
         return segment_data.id_segment
 
     def delete_segment(self, id_segment):

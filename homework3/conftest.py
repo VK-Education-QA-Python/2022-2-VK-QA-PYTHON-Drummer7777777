@@ -7,19 +7,16 @@ import creds
 def pytest_addoption(parser):
     parser.addoption('--browser', default='chrome')
     parser.addoption('--url', default='https://target-sandbox.my.com')
-    parser.addoption('--headless', action='store_true')
     parser.addoption('--debug_log', action='store_true')
 
 @pytest.fixture(scope='session')
 def config(request):
     browser = request.config.getoption('--browser')
     url = request.config.getoption('--url')
-    headless = request.config.getoption('--headless')
     debug_log = request.config.getoption('--debug_log')
     return {
         'browser': browser,
         'url': url,
-        'headless': headless,
         'debug_log': debug_log,
     }
 
